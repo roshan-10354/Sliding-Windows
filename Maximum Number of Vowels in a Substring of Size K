@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) 
+    {
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        int k=sc.nextInt();
+        char c[]=s.toCharArray();
+        int n=c.length;
+        int h=0;
+        for(int i=0;i<k;i++)
+        {
+            if(c[i]=='a' ||c[i]=='e' ||c[i]=='i' ||c[i]=='o' ||c[i]=='u' ||c[i]=='A' ||c[i]=='E' ||c[i]=='I' ||c[i]=='O' ||c[i]=='U')
+            h++;
+        }
+        int max=h;
+        for(int i=k;i<n;i++)
+        {
+            if(c[i]=='a' ||c[i]=='e' ||c[i]=='i' ||c[i]=='o' ||c[i]=='u' ||c[i]=='A' ||c[i]=='E' ||c[i]=='I' ||c[i]=='O' ||c[i]=='U')
+            h++;
+            if(c[i-k]=='a' ||c[i-k]=='e' ||c[i-k]=='i' ||c[i-k]=='o' ||c[i-k]=='u' ||c[i-k]=='A' ||c[i-k]=='E' ||c[i-k]=='I' ||c[i-k]=='O' ||c[i-k]=='U')
+            h--;
+            max=Math.max(max,h);   
+        }
+        System.out.print(max);     
+    } 
+}
