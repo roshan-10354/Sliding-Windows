@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+public class Solution 
+{
+static boolean vowel(char c)
+        {
+            return(c=='a' ||c=='e' ||c=='i' ||c=='o' ||c=='u' );
+        }
+    public static void main(String[] args) 
+    {
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine().toLowerCase();
+        int n=s.length();
+        int k=sc.nextInt();
+        int c=0;
+        for(int i=0;i<k;i++)
+        {
+         if(vowel(s.charAt(i)))
+         c++;   
+        }
+        System.out.print(c+" ");
+        for(int i=k;i<n;i++)
+        {
+            if(vowel(s.charAt(i))) c++;
+            if(vowel(s.charAt(i-k))) c--;
+            System.out.print(c+" ");
+        }
+    }
+}
